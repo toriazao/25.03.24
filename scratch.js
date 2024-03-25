@@ -114,11 +114,45 @@ function deslizarParaDireita() {
 }
 
 function posicaoAleatoria() {
-            var screenWidth = window.innerWidth;
-            var screenHeight = window.innerHeight;
-            var randomX = Math.floor(Math.random() * (screenWidth - imgAvatar.width));
-            var randomY = Math.floor(Math.random() * (screenHeight - imgAvatar.height));
-            imgAvatar.style.left = randomX + "px";
-            imgAvatar.style.top = randomY + "px";
-            window.onload = posicaoAleatoria;
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+    var randomX = Math.floor(Math.random() * (screenWidth - imgAvatar.width));
+    var randomY = Math.floor(Math.random() * (screenHeight - imgAvatar.height));
+    imgAvatar.style.left = randomX + "px";
+    imgAvatar.style.top = randomY + "px";
+    window.onload = posicaoAleatoria;
+}
+
+function trocarAvatar() {
+    for (let i = 0; i < imagens.length; i++) {
+        if (!imgAvatar.src.includes(imagens[i])) {
+            imgAvatar.src = "./" + imagens[i];
+            break;
+        }
+    }
+}
+
+function aumentarAvatar() {
+    var tamanhoAtual = imgAvatar.clientWidth;
+    var novoTamanho = tamanhoAtual * 1.2; 
+    var tamanhoMaximo = 500;
+    imgAvatar.style.width = novoTamanho + "px";
+
+    if (novoTamanho <= tamanhoMaximo) { 
+        imagem.style.width = novoTamanho + "px";
+    } else {
+        alert("A imagem atingiu o tamanho máximo.");
+    }
+}
+
+function diminuirAvatar() {
+    var tamanhoAtual = imgAvatar.clientWidth;
+    var tamanhoMinimo = 100;
+    var novoTamanho = tamanhoAtual * 0.8;
+
+    if (novoTamanho >= tamanhoMinimo) {
+        imgAvatar.style.width = novoTamanho + "px";
+    } else {
+        alert("A imagem atingiu o tamanho mínimo.");
+    }
 }
