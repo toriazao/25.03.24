@@ -1,0 +1,16 @@
+button{
+    background-color: rgba(195, 0, 255, 0.753);
+    color: aliceblue;
+    border-radius: 15px;
+}
+
+#imgAvatar{
+    border-radius: 15px;
+}
+
+#txtPixel{
+    color: rgb(120, 42, 165);
+}
+label{
+    color: rgb(197, 127, 255);
+}
